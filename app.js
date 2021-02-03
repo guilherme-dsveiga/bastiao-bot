@@ -8,11 +8,11 @@ const T = new Twit({
 });
 
 var tweetId;
-var tweetCount = 15;
+var tweetCount = 20;
 
 console.log("funcionando...");
 
-setInterval(botInit, 7000);
+setInterval(botInit, 5000);
 
 function botInit() {
     var params1 = {
