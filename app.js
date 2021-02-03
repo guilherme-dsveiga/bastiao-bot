@@ -10,7 +10,7 @@ const T = new Twit({
 var tweetId;
 var tweetCount = 20;
 
-setInterval(botInit(), 5000);
+setInterval(botInit, 5000);
 
 function botInit() {
 
