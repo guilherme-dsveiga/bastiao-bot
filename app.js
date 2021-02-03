@@ -10,12 +10,11 @@ const T = new Twit({
 var tweetId;
 var tweetCount = 15;
 
+console.log("funcionando...");
+
 setInterval(botInit, 7000);
 
 function botInit() {
-
-    console.log('Este bot está rodando...');
-
     var params1 = {
         q: 'bastiao',
         count: tweetCount,
@@ -28,7 +27,6 @@ function botInit() {
         console.log(data);
         for (var i = 0; i < tweetCount; i++) {
             tweetId = data.statuses[i].id_str;
-            console.log("O ID DO TWEET EH: " + tweetId);
             retweetId(tweetId);
         }
     }
@@ -41,7 +39,7 @@ function botInit() {
         T.post('statuses/retweet', params2, retweetDone);
 
         function retweetDone(err, data, response) {
-            console.log("Retweet Feito");
+            console.log(data);
         }
     }
 }
