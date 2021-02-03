@@ -10,41 +10,40 @@ const T = new Twit({
 var tweetId;
 var tweetCount = 20;
 
-console.log('Este bot está rodando...');
+setInterval(botInit(), 5000);
 
-var params1 = {
-    q: 'bastiao',
-    count: tweetCount,
-    result_type: 'recent'
-}
+function botInit() {
 
-T.get('search/tweets', params1, gotData);
+    console.log('Este bot está rodando...');
 
-function gotData(err, data, response) {
-    console.log(data);
-    for(var i = 0; i < tweetCount; i++){
-        if(data.statuses[i].retweet_count < 1){
-            tweetId = data.statuses[i].id_str;
-            console.log("O ID DO TWEET EH: " + tweetId);
-            retweetId(tweetId);
+    var params1 = {
+        q: 'bastiao',
+        count: tweetCount,
+        result_type: 'recent'
+    }
+
+    T.get('search/tweets', params1, gotData);
+
+    function gotData(err, data, response) {
+        console.log(data);
+        for (var i = 0; i < tweetCount; i++) {
+            if (data.statuses[i].retweet_count < 1) {
+                tweetId = data.statuses[i].id_str;
+                console.log("O ID DO TWEET EH: " + tweetId);
+                retweetId(tweetId);
+            }
+        }
+    }
+
+    function retweetId(id) {
+        var params2 = {
+            id: id
+        }
+
+        T.post('statuses/retweet', params2, retweetDone);
+
+        function retweetDone(err, data, response) {
+            console.log("Retweet Feito");
         }
     }
 }
-
-function retweetId(id){
-    var params2 = {
-        id: id
-    }
-
-    T.post('statuses/retweet',params2,retweetDone);
-
-    function retweetDone(err, data, response){
-        console.log("Retweet Feito");
-    }
-}
-
-
-
-
-
-
