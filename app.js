@@ -8,7 +8,7 @@ const T = new Twit({
 });
 
 var tweetId;
-var tweetCount = 20;
+var tweetCount = 2;
 
 setInterval(botInit, 5000);
 
@@ -27,11 +27,9 @@ function botInit() {
     function gotData(err, data, response) {
         console.log(data);
         for (var i = 0; i < tweetCount; i++) {
-            if (data.statuses[i].retweet_count < 1) {
-                tweetId = data.statuses[i].id_str;
-                console.log("O ID DO TWEET EH: " + tweetId);
-                retweetId(tweetId);
-            }
+            tweetId = data.statuses[i].id_str;
+            console.log("O ID DO TWEET EH: " + tweetId);
+            retweetId(tweetId);
         }
     }
 
