@@ -17,8 +17,7 @@ setInterval(botInit, 5000);
 function botInit() {
     var params1 = {
         q: 'bastiao',
-        count: tweetCount,
-        result_type: 'recent'
+        count: tweetCount
     }
 
     T.get('search/tweets', params1, gotData);
@@ -26,8 +25,13 @@ function botInit() {
     function gotData(err, data, response) {
         console.log(data);
         for (var i = 0; i < tweetCount; i++) {
-            tweetId = data.statuses[i].id_str;
-            retweetId(tweetId);
+            if (data.statuses[i].retweeted == false) {
+                tweetId = data.statuses[i].id_str;
+                retweetId(tweetId);
+            } else {
+                console.log("Ja foi retweetado");
+            }
+
         }
     }
 
