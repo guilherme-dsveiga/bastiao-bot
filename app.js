@@ -8,9 +8,9 @@ const T = new Twit({
 });
 
 var tweetId;
-var tweetCount = 20;
+var tweetCount = 15;
 
-setInterval(botInit, 5000);
+setInterval(botInit, 7000);
 
 function botInit() {
 
