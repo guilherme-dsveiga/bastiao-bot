@@ -1,10 +1,10 @@
 const Twit = require('twit');
 const fetch = require('node-fetch');
 const T = new Twit({
-    consumer_key: 'cjwWnNHnWFb8lZ4Q3S0lrsomr',
-    consumer_secret: '0RkiBl66wNhl46m1eD4xGNil4xx4aLK62vDr4gIyqt98p6E6Cg',
-    access_token: '1331688378769829890-Z5WQ4LjVCu7Yq2TUxibsl1u15IYnDL',
-    access_token_secret: 'rGaeygYjIqLGCFRahXp3gr5KiDrJl2TxBgmF4SZPoUH8V',
+    consumer_key: '-',
+    consumer_secret: '-',
+    access_token: '-',
+    access_token_secret: '-',
 });
 
 var tweetId;
